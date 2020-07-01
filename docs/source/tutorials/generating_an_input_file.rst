@@ -346,12 +346,12 @@ energies relative to the clean (111) :math:`{\rm{Rh}}` slab.
 
 Now we can write a function to convert these "raw" energies to
 "reference" energies. Note that we use the function
-`ase.atoms.string2symbols` as a convenient way to get the composition from
+`ase.symbols.string2symbols` as a convenient way to get the composition from
 the chemical formula.
 
 .. code:: python
 
-    from ase.atoms import string2symbols
+    from ase.symbols import string2symbols
 
     def get_formation_energies(energy_dict,ref_dict):
         formation_energies = {}
@@ -381,7 +381,7 @@ eV):
     formation_energies = get_formation_energies(abinitio_energies,ref_dict)
 
     for key in formation_energies:
-        print key, formation_energies[key]
+        print (key, formation_energies[key])
 
     >>
     >> OH_111 0.323
@@ -472,7 +472,7 @@ function will do this for us:
         input.write(input_file) #write the text
         input.close() #close the file
 
-        print 'Successfully created input file'
+        print ('Successfully created input file')
 
 Now use this function to create the text file - in this case we call it
 "energies.txt":
@@ -543,7 +543,7 @@ reference.
     #check that the parsing was successful by ensuring that all the
     #data in the input file was collected in this dictionary.
     for key in rxm.species_definitions:
-        print key, rxm.species_definitions[key]
+        print (key, rxm.species_definitions[key])
 
 The output of this should contain all species in the model along with
 their energies, frequencies, etc.

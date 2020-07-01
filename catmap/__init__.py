@@ -3,7 +3,7 @@ import os
 import sys
 import inspect
 import time
-import cPickle as pickle
+import pickle
 import re
 from copy import copy
 from string import Template
@@ -15,7 +15,7 @@ import matplotlib as mpl
 mpl.use('Agg')
 import pylab as plt
 import matplotlib.transforms as mtransforms
-from matplotlib.mlab import griddata as mlab_griddata
+from scipy.interpolate.ndgriddata import griddata as mlab_griddata
 
 def griddata(*args, **kwargs):
     """Wrapper function to avoid annoying griddata errors"""
@@ -26,7 +26,7 @@ def griddata(*args, **kwargs):
         return mlab_griddata(*args, **kwargs)
 
 import mpmath as mp
-from ase.atoms import string2symbols
+from ase.symbols import string2symbols
 from ase.thermochemistry import IdealGasThermo, HarmonicThermo
 from ase.structure import molecule
 from catmap.model import ReactionModel
